@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: Jost;
+  src: url("/assets/fonts/jost-latin-400-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url("/assets/fonts/jost-latin-500-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Montserrat Variable", Arial, sans-serif;
+  --font-script: "Island Moments", cursive;
+  --font-credit: Jost, Arial, sans-serif;
+  --color-primary: #ff7e01;
+  --color-secondary: #faa935;
+  --color-heading: #0b2727;
+  --color-body: #6e7074;
+  --color-newsletter: #cae5f4;
+  --color-search-icon: #ee6e6e;
+  --radius-control: 8px;
+  --radius-pill: 50px;
+  --shadow-search: 0 2px 10px rgb(0 0 0 / 15%);
+}
+
+:root {
+  --content-width: 1120px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

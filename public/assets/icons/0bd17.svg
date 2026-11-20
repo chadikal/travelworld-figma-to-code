@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 3">
+<path id="Rectangle 14" d="M0 10C0 4.47715 4.47715 0 10 0H44C46.2091 0 48 1.79086 48 4V38C48 43.5229 43.5228 48 38 48H4C1.79086 48 0 46.2091 0 44V10Z" fill="#FF7E01"/>
+<g id="Vector">
+<path d="M29.7108 29.6726L35 35ZM32.5556 22.7778C32.5556 28.1779 28.1779 32.5556 22.7778 32.5556C17.3777 32.5556 13 28.1779 13 22.7778C13 17.3777 17.3777 13 22.7778 13C28.1779 13 32.5556 17.3777 32.5556 22.7778Z" fill="#FF7E01"/>
+<path d="M29.7108 29.6726L35 35M32.5556 22.7778C32.5556 28.1779 28.1779 32.5556 22.7778 32.5556C17.3777 32.5556 13 28.1779 13 22.7778C13 17.3777 17.3777 13 22.7778 13C28.1779 13 32.5556 17.3777 32.5556 22.7778Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+</g>
+</g>
+</svg>

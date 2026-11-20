@@ -10,8 +10,10 @@ const contacts = [
 
 export function SiteFooter({ currentPage = "home" }: { currentPage?: "home" | "tours" }) {
   const home = currentPage === "home";
+  const homeHref = home ? "#top" : "/#top";
+  const toursHref = home ? "/tours/#top" : "#top";
   const groups = [
-    { title: "Discover", links: [{ name: "Home", href: home ? "#top" : "/" }, { name: "About" }, { name: "Tours", href: home ? "/tours/" : "#top" }] },
+    { title: "Discover", links: [{ name: "Home", href: homeHref }, { name: "About" }, { name: "Tours", href: toursHref }] },
     { title: "Quick Links", links: [{ name: "Gallery", href: home ? "#gallery" : "/#gallery" }, { name: "Login" }, { name: "Register" }] },
   ];
 
@@ -20,7 +22,7 @@ export function SiteFooter({ currentPage = "home" }: { currentPage?: "home" | "t
       <Container>
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link href={home ? "#top" : "/"} aria-label="TravelWorld home">
+            <Link href={homeHref} aria-label="TravelWorld home">
               <Artwork file="35d05.png" alt="TravelWorld" width={255} height={76} className="footer-logo" />
             </Link>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, enim.</p>

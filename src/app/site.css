@@ -1,3 +1,8 @@
+html {
+  --site-header-height: 85px;
+  scroll-padding-top: var(--site-header-height);
+}
+
 .skip-link {
   position: fixed;
   z-index: 10;
@@ -19,16 +24,22 @@
   outline-offset: 4px;
 }
 
+#main-content:focus {
+  outline: none;
+}
+
 .site-header {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 2;
+  background: white;
 }
 
 .header-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 85px;
+  min-height: var(--site-header-height);
 }
 
 .header-logo {
@@ -352,9 +363,9 @@
 }
 
 @media (max-width: 820px) {
-  .header-row {
-      min-height: 70px;
-    }
+  html {
+    --site-header-height: 70px;
+  }
 
   .header-logo {
       width: 185px;

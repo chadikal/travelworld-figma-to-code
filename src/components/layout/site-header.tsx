@@ -18,10 +18,10 @@ export function SiteHeader({ currentPage = "home" }: { currentPage?: "home" | "t
   const toggle = useRef<HTMLButtonElement>(null);
 
   return (
-    <header id="top" className="site-header">
+    <header className="site-header">
       <Container>
         <div className="header-row">
-          <Link href={currentPage === "home" ? "#top" : "/"} aria-label="TravelWorld home" onClick={() => setOpen(false)}>
+          <Link href={currentPage === "home" ? "#top" : "/#top"} aria-label="TravelWorld home" onClick={() => setOpen(false)}>
             <Artwork file="1c866.png" alt="TravelWorld" width={255} height={76} preload className="header-logo" />
           </Link>
           <button
@@ -52,7 +52,7 @@ export function SiteHeader({ currentPage = "home" }: { currentPage?: "home" | "t
             {navItems.map((item) => {
               if ("page" in item) {
                 const active = item.page === currentPage;
-                const href = active ? "#top" : item.page === "home" ? "/" : "/tours/";
+                const href = active ? "#top" : item.page === "home" ? "/#top" : "/tours/#top";
                 return <Link key={item.name} href={href} aria-current={active ? "page" : undefined} onClick={() => setOpen(false)}>{item.name}</Link>;
               }
               return (

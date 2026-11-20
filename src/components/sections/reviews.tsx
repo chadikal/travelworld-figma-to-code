@@ -1,18 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Container } from "@/components/layout/container";
 import { Artwork } from "@/components/ui/artwork";
 import { reviewers, reviewText } from "@/data/home";
 import { SectionHeading } from "./section-heading";
 
-const slideCount = 4;
+const cycleDuration = 36_000;
+const reviewDuration = cycleDuration / reviewers.length;
 
 export function Reviews() {
+  const track = useRef<HTMLDivElement>(null);
+  const flow = useRef<Animation | null>(null);
   const [slide, setSlide] = useState(0);
   const [rotation, setRotation] = useState<boolean | null>(null);
   const [hovered, setHovered] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState<boolean | null>(null);
 
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -22,39 +25,79 @@ export function Reviews() {
     return () => preference.removeEventListener("change", sync);
   }, []);
 
-  const playing = rotation ?? !reducedMotion;
+  const playing = rotation ?? (reducedMotion === false);
 
   useEffect(() => {
-    if (!playing || hovered) return;
-    const timer = window.setInterval(() => setSlide((current) => (current + 1) % slideCount), 8000);
+    const animation = track.current?.animate(
+      [{ transform: "translateX(0)" }, { transform: "translateX(-50%)" }],
+      { duration: cycleDuration, iterations: Infinity },
+    );
+    if (!animation) return;
+    animation.pause();
+    flow.current = animation;
+    return () => {
+      animation.cancel();
+      flow.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    const animation = flow.current;
+    if (!animation) return;
+    if (!playing || hovered) {
+      animation.pause();
+      return;
+    }
+    animation.play();
+    const timer = window.setInterval(() => {
+      setSlide(Math.floor(Number(animation.currentTime) / reviewDuration) % reviewers.length);
+    }, 200);
     return () => window.clearInterval(timer);
   }, [hovered, playing]);
 
-  // The prototype's last variant returns to the first group of three.
-  const order = reviewers.map((_, index) => reviewers[(slide + index) % reviewers.length]);
+  function selectReview(index: number) {
+    const animation = flow.current;
+    if (animation) {
+      animation.pause();
+      animation.currentTime = index * reviewDuration;
+    }
+    setSlide(index);
+    setRotation(false);
+  }
+
+  const cards = reviewers.map(({ name, avatar }) => (
+    <figure key={name} className="review">
+      <blockquote>{reviewText}</blockquote>
+      <figcaption>
+        <Artwork file={avatar} alt="" width={85} height={63} />
+        <div><strong>{name}</strong><span>Customer</span></div>
+      </figcaption>
+    </figure>
+  ));
 
   return (
     <section className="home-section reviews-section" aria-labelledby="reviews-heading">
       <Container>
         <SectionHeading id="reviews-heading" label="Fans Love" title="What our fans say about us" />
-        <div className="reviews-carousel" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-          <div className="review-grid" id="review-slides" aria-live={playing ? "off" : "polite"}>
-            {order.map(({ name, avatar }) => (
-              <figure key={name} className="review">
-                <blockquote>{reviewText}</blockquote>
-                <figcaption>
-                  <Artwork file={avatar} alt="" width={85} height={63} />
-                  <div><strong>{name}</strong><span>Customer</span></div>
-                </figcaption>
-              </figure>
-            ))}
+        <div className="reviews-carousel">
+          <div
+            className="review-viewport"
+            id="review-slides"
+            onPointerEnter={(event) => {
+              if (event.pointerType === "mouse") setHovered(true);
+            }}
+            onPointerLeave={(event) => {
+              if (event.pointerType === "mouse") setHovered(false);
+            }}
+          >
+            <div className="review-track" ref={track} style={{ "--review-count": reviewers.length } as CSSProperties}>
+              <div className="review-grid">{cards}</div>
+              <div className="review-grid" aria-hidden="true">{cards}</div>
+            </div>
           </div>
           <div className="review-controls" role="group" aria-label="Review carousel controls">
-            {Array.from({ length: slideCount }, (_, index) => (
-              <button key={index} type="button" aria-label={`Show reviews ${index + 1}`} aria-pressed={slide === index} aria-controls="review-slides" onClick={() => {
-                setSlide(index);
-                setRotation(false);
-              }}>
+            {reviewers.map(({ name }, index) => (
+              <button key={name} type="button" aria-label={`Show review by ${name}`} aria-pressed={slide === index} aria-controls="review-slides" onClick={() => selectReview(index)}>
                 <Artwork file={slide === index ? "3e51f.svg" : "1bbfd.svg"} alt="" width={8} height={8} />
               </button>
             ))}

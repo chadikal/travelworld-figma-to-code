@@ -529,10 +529,23 @@
   padding-bottom: 40px;
 }
 
+.review-viewport {
+  --review-gap: 46px;
+  --reviews-visible: 3;
+  overflow: clip;
+}
+
+.review-track {
+  display: flex;
+  width: calc((100% + var(--review-gap)) * var(--review-count) * 2 / var(--reviews-visible));
+}
+
 .review-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 46px;
+  flex: 0 0 50%;
+  grid-template-columns: repeat(var(--review-count), minmax(0, 1fr));
+  gap: var(--review-gap);
+  padding-inline-end: var(--review-gap);
   min-height: 193px;
 }
 
@@ -758,8 +771,8 @@
     display: none;
   }
 
-  .review-grid {
-    gap: 28px;
+  .review-viewport {
+    --review-gap: 28px;
   }
 
   .review figcaption {
@@ -922,8 +935,8 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .review-grid {
-    gap: 20px;
+  .review-viewport {
+    --review-gap: 20px;
   }
 
   .review figcaption img {
@@ -1047,13 +1060,12 @@
     margin-top: 20px;
   }
 
-  .review-grid {
-    grid-template-columns: minmax(0, 1fr);
-    min-height: 160px;
+  .review-viewport {
+    --reviews-visible: 1;
   }
 
-  .review-grid .review:not(:first-child) {
-    display: none;
+  .review-grid {
+    min-height: 160px;
   }
 
   .review-controls {

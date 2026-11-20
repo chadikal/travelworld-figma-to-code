@@ -1,12 +1,19 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { Artwork } from "@/components/ui/artwork";
 import { Container } from "./container";
 
-const navItems = ["About", "Tours", "Login", "Register"];
+const navItems = [
+  { name: "Home", page: "home" },
+  { name: "About" },
+  { name: "Tours", page: "tours" },
+  { name: "Login", className: "login-action" },
+  { name: "Register", className: "register-action" },
+] as const;
 
-export function SiteHeader() {
+export function SiteHeader({ currentPage = "home" }: { currentPage?: "home" | "tours" }) {
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
 
@@ -14,9 +21,9 @@ export function SiteHeader() {
     <header id="top" className="site-header">
       <Container>
         <div className="header-row">
-          <a href="#top" aria-label="TravelWorld home" onClick={() => setOpen(false)}>
+          <Link href={currentPage === "home" ? "#top" : "/"} aria-label="TravelWorld home" onClick={() => setOpen(false)}>
             <Artwork file="1c866.png" alt="TravelWorld" width={255} height={76} preload className="header-logo" />
-          </a>
+          </Link>
           <button
             ref={toggle}
             className="mobile-nav-toggle"
@@ -42,19 +49,25 @@ export function SiteHeader() {
               }
             }}
           >
-            <a href="#top" aria-current="page" onClick={() => setOpen(false)}>Home</a>
-            {navItems.map((name) => (
-              <span
-                key={name}
-                role="link"
-                aria-disabled="true"
-                title={`${name} is planned for the next phase`}
-                className={name === "Register" ? "register-action" : name === "Login" ? "login-action" : undefined}
-              >
-                {name}
-              </span>
-            ))}
-            <a href="#gallery" className="mobile-gallery-link" onClick={() => setOpen(false)}>Gallery</a>
+            {navItems.map((item) => {
+              if ("page" in item) {
+                const active = item.page === currentPage;
+                const href = active ? "#top" : item.page === "home" ? "/" : "/tours/";
+                return <Link key={item.name} href={href} aria-current={active ? "page" : undefined} onClick={() => setOpen(false)}>{item.name}</Link>;
+              }
+              return (
+                <span
+                  key={item.name}
+                  role="link"
+                  aria-disabled="true"
+                  title={`${item.name} is planned for a later phase`}
+                  className={"className" in item ? item.className : undefined}
+                >
+                  {item.name}
+                </span>
+              );
+            })}
+            <Link href={currentPage === "home" ? "#gallery" : "/#gallery"} className="mobile-gallery-link" onClick={() => setOpen(false)}>Gallery</Link>
           </nav>
         </div>
       </Container>

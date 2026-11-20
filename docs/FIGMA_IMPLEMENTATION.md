@@ -54,8 +54,16 @@ Home implements the shared header and footer, hero, search, services, featured t
 
 - The central hero tile retains its layout and displays an unavailable state while the original video and poster are missing.
 - Search filters the featured tours on Home using sample distances and group capacities. Its labels correct the source's Location spelling and kilometer notation. Reviews glide left in a continuous loop. The four dots jump to the three reviews and back to the first, following the prototype. The strip pauses on hover or through its Pause button. Reduced-motion users start with playback paused. Newsletter submission validates locally and confirms demo behavior.
-- Home and Gallery navigation work as in-page links. About, Tours, Login, and Register remain visible as disabled items until their routes are implemented. The source social icons appear in the footer. Their destination URLs were unspecified.
+- Home and Gallery navigation work as in-page links. During Phase 2, the unimplemented routes appeared as disabled items. The source social icons appear in the footer. Their destination URLs were unspecified.
 
 Chromium screenshots of the production export were captured at 375, 390, 768, 1024, 1440, and 1920 px. At 1440 px, a side-by-side review against the original Home export confirmed the 4239 px page height and matching section boundaries. The comparison led to adjustments in the experience text, footer contact alignment, and section spacing. The mobile check also caught and corrected headline spacing and search field clipping.
 
 All six widths loaded without horizontal overflow, failed requests, or browser console warnings. Browser checks covered mobile navigation and gallery links, search results and empty states, keyboard focus, carousel selection and rotation, and required and invalid newsletter emails. Lint, strict TypeScript, and the static production build passed.
+
+## Phase 3 · Tours
+
+The Tours route implements the original banner, plane artwork, search controls, ten destination tiles, Load More, shared newsletter, and footer. The 1440 px layout preserves the four alternating rows and the separate type treatments for large and compact tiles. Compact tiles reflow on phones, and the plane artwork is hidden at narrower widths to leave space for the search controls.
+
+Location, distance, and maximum group size filter the local demo collection. Load More reveals three extra entries using original photos from the Home frame. The initial cards use the source captions, including the Tours frame's Phetchabun label. Home and Tours link to each other, and Gallery on Tours links back to the Home gallery.
+
+The 1440 px browser screenshot was compared alongside the original export. The page height measured 3073 px, and the hero, search, catalog, newsletter, and footer align to the Figma section positions. The El Nido tile uses the source's full-image placement. Chromium checks at 375, 390, 768, 1024, 1440, and 1920 px covered overflow, images, fonts, and route loading. Interaction checks covered Home and Tours navigation, combined filters, empty results, reset, Load More, and demo signup.

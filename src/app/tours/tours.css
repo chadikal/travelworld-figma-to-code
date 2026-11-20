@@ -1,0 +1,274 @@
+.tours-banner {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 400px;
+  overflow: clip;
+  background: var(--color-heading);
+}
+
+.tours-banner img {
+  z-index: -1;
+  object-fit: cover;
+}
+
+.tours-banner h1 {
+  color: white;
+  font-size: clamp(42px, 5.5vw, 64px);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}
+
+.tours-banner h1 span {
+  color: var(--color-primary);
+}
+
+.catalog-search {
+  overflow: clip;
+  padding-block: 50px 100px;
+}
+
+.catalog-search-row {
+  position: relative;
+}
+
+.catalog-search .tour-search {
+  margin-top: 0;
+}
+
+.catalog-plane {
+  position: absolute;
+  top: -5px;
+  left: 832px;
+  width: 587.647px;
+  max-width: none;
+  height: 132.919px;
+  pointer-events: none;
+}
+
+.catalog-section {
+  padding-bottom: 98px;
+}
+
+.catalog-section h2 {
+  margin-bottom: 50px;
+  scroll-margin-top: 24px;
+  text-align: center;
+  font-size: clamp(29px, 4vw, 44px);
+  font-weight: 600;
+  line-height: 54px;
+}
+
+.catalog-section h2 span {
+  color: var(--color-secondary);
+}
+
+.catalog-section h2:focus-visible {
+  outline: 2px solid var(--color-heading);
+  outline-offset: 4px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.catalog-card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-column: span 3;
+  place-items: center;
+  overflow: clip;
+  min-width: 0;
+  aspect-ratio: 545 / 521;
+  border-radius: 6px;
+  background: var(--color-heading);
+  color: white;
+}
+
+.catalog-card[data-size="compact"] {
+  grid-column: span 2;
+  min-height: 140px;
+  aspect-ratio: auto;
+  place-items: end start;
+}
+
+.catalog-card img {
+  z-index: -1;
+  object-fit: cover;
+  transition: transform 250ms ease;
+}
+
+.catalog-card .catalog-image-fill {
+  object-fit: fill;
+}
+
+.catalog-card:hover img {
+  transform: scale(1.055);
+}
+
+.catalog-caption {
+  padding: 12px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.catalog-caption h3 {
+  margin-bottom: -.3125em;
+  font-family: var(--font-script);
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 400;
+}
+
+.catalog-card[data-caption="loose"] h3 {
+  margin-bottom: -.15625em;
+}
+
+.catalog-caption p {
+  font-size: clamp(20px, 3vw, 40px);
+  font-weight: 600;
+}
+
+.catalog-card[data-size="compact"] .catalog-caption {
+  padding: 0 20px 20px;
+  text-align: left;
+}
+
+.catalog-card[data-size="compact"] h3 {
+  margin-bottom: -5px;
+  color: var(--color-secondary);
+  font-size: 36px;
+}
+
+.catalog-card[data-size="compact"] p {
+  font-size: 20px;
+}
+
+.catalog-results {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 234px), 1fr));
+}
+
+.catalog-results .catalog-card {
+  grid-column: auto;
+  place-items: end start;
+  aspect-ratio: 353 / 190;
+}
+
+.catalog-results .catalog-caption {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.catalog-results .catalog-caption h3 {
+  margin-bottom: 0;
+  font-size: 40px;
+}
+
+.catalog-results .catalog-caption p {
+  font-size: 20px;
+}
+
+.catalog-load {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.catalog-load-button {
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid var(--color-heading);
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.catalog-load-button:not([aria-disabled="true"]):hover {
+  background: var(--color-heading);
+  color: white;
+}
+
+.catalog-load-button[aria-disabled="true"] {
+  cursor: default;
+  color: var(--color-body);
+}
+
+@media (max-width: 980px) {
+  .catalog-plane {
+    display: none;
+  }
+
+  .catalog-search {
+    padding-block: 36px 56px;
+  }
+
+  .catalog-section {
+    padding-bottom: 65px;
+  }
+
+  .catalog-section h2 {
+    margin-bottom: 32px;
+  }
+
+  .catalog-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 620px) {
+  .tours-banner {
+    min-height: 250px;
+  }
+
+  .catalog-search {
+    padding-block: 24px 36px;
+  }
+
+  .catalog-section {
+    padding-bottom: 50px;
+  }
+
+  .catalog-section h2 {
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+
+  .catalog-grid:not(.catalog-results) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .catalog-grid .catalog-card {
+    grid-column: auto;
+  }
+
+  .catalog-grid:not(.catalog-results) .catalog-card[data-size="compact"] {
+    grid-column: 1 / -1;
+  }
+
+  .catalog-caption h3 {
+    font-size: clamp(32px, 10vw, 52px);
+  }
+
+  .catalog-caption p {
+    font-size: clamp(14px, 4vw, 22px);
+  }
+
+  .catalog-load {
+    margin-top: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog-card img,
+  .catalog-load-button {
+    transition: none;
+  }
+}

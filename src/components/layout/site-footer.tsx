@@ -1,10 +1,6 @@
+import Link from "next/link";
 import { Artwork } from "@/components/ui/artwork";
 import { Container } from "./container";
-
-const groups = [
-  { title: "Discover", links: [{ name: "Home", href: "#top" }, { name: "About" }, { name: "Tours" }] },
-  { title: "Quick Links", links: [{ name: "Gallery", href: "#gallery" }, { name: "Login" }, { name: "Register" }] },
-];
 
 const contacts = [
   { label: "Address", value: "Lorem", icon: "92d5a.svg", width: 18, height: 15 },
@@ -12,15 +8,21 @@ const contacts = [
   { label: "Phone", value: "00022200222", icon: "7e18a.svg", width: 18, height: 15 },
 ];
 
-export function SiteFooter() {
+export function SiteFooter({ currentPage = "home" }: { currentPage?: "home" | "tours" }) {
+  const home = currentPage === "home";
+  const groups = [
+    { title: "Discover", links: [{ name: "Home", href: home ? "#top" : "/" }, { name: "About" }, { name: "Tours", href: home ? "/tours/" : "#top" }] },
+    { title: "Quick Links", links: [{ name: "Gallery", href: home ? "#gallery" : "/#gallery" }, { name: "Login" }, { name: "Register" }] },
+  ];
+
   return (
     <footer className="site-footer">
       <Container>
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="#top" aria-label="TravelWorld home">
+            <Link href={home ? "#top" : "/"} aria-label="TravelWorld home">
               <Artwork file="35d05.png" alt="TravelWorld" width={255} height={76} className="footer-logo" />
-            </a>
+            </Link>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, enim.</p>
             <div className="footer-socials" aria-hidden="true">
               {["cba40.svg", "c4148.svg", "f75ab.svg", "f56be.svg"].map((file) => (
@@ -35,7 +37,7 @@ export function SiteFooter() {
               <ul>
                 {group.links.map(({ name, href }) => (
                   <li key={name}>
-                    {href ? <a href={href}>{name}</a> : <span role="link" aria-disabled="true">{name}</span>}
+                    {href ? <Link href={href}>{name}</Link> : <span role="link" aria-disabled="true">{name}</span>}
                   </li>
                 ))}
               </ul>

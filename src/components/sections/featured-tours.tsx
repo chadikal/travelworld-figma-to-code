@@ -4,15 +4,12 @@ import { useHomeTourSearch } from "@/components/forms/home-tour-search";
 import { Container } from "@/components/layout/container";
 import { Artwork } from "@/components/ui/artwork";
 import { featuredTours } from "@/data/home";
+import { matchesTour } from "@/lib/tour-filters";
 import { SectionHeading } from "./section-heading";
 
 export function FeaturedTours() {
   const { filters, setFilters } = useHomeTourSearch();
-  const visibleTours = filters ? featuredTours.filter((tour) => (
-    `${tour.name} ${tour.region}`.toLowerCase().includes(filters.location) &&
-    (!filters.distance || tour.distanceKm <= filters.distance) &&
-    (!filters.people || tour.capacity >= filters.people)
-  )) : featuredTours;
+  const visibleTours = filters ? featuredTours.filter((tour) => matchesTour(tour, filters)) : featuredTours;
 
   return (
     <section id="featured-tours" className="home-section" aria-labelledby="featured-heading">

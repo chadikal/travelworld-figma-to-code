@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import "@fontsource-variable/montserrat/wght.css";
 import "@fontsource/island-moments/latin-400.css";
 import "./globals.css";
+import "./site.css";
 
 export const metadata: Metadata = {
   title: { default: "TravelWorld", template: "%s | TravelWorld" },

@@ -8,6 +8,10 @@ import { SectionHeading } from "./section-heading";
 
 const cycleDuration = 36_000;
 const reviewDuration = cycleDuration / reviewers.length;
+const reviewStops = [
+  ...reviewers.map(({ name }) => `Show review by ${name}`),
+  "Return to first review",
+];
 
 export function Reviews() {
   const track = useRef<HTMLDivElement>(null);
@@ -50,12 +54,13 @@ export function Reviews() {
     }
     animation.play();
     const timer = window.setInterval(() => {
-      setSlide(Math.floor(Number(animation.currentTime) / reviewDuration) % reviewers.length);
+      const progress = Number(animation.currentTime) % cycleDuration;
+      setSlide(Math.round(progress / reviewDuration));
     }, 200);
     return () => window.clearInterval(timer);
   }, [hovered, playing]);
 
-  function selectReview(index: number) {
+  function selectReviewStop(index: number) {
     const animation = flow.current;
     if (animation) {
       animation.pause();
@@ -96,8 +101,8 @@ export function Reviews() {
             </div>
           </div>
           <div className="review-controls" role="group" aria-label="Review carousel controls">
-            {reviewers.map(({ name }, index) => (
-              <button key={name} type="button" aria-label={`Show review by ${name}`} aria-pressed={slide === index} aria-controls="review-slides" onClick={() => selectReview(index)}>
+            {reviewStops.map((label, index) => (
+              <button key={label} type="button" aria-label={label} aria-pressed={slide === index} aria-controls="review-slides" onClick={() => selectReviewStop(index)}>
                 <Artwork file={slide === index ? "3e51f.svg" : "1bbfd.svg"} alt="" width={8} height={8} />
               </button>
             ))}

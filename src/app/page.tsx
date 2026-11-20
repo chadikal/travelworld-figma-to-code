@@ -1,12 +1,30 @@
-import { Container } from "@/components/layout/container";
+import { HomeTourSearch } from "@/components/forms/home-tour-search";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
+import { FeaturedTours } from "@/components/sections/featured-tours";
+import { Hero } from "@/components/sections/hero";
+import { Experience, Gallery, Services } from "@/components/sections/home-stories";
+import { Newsletter } from "@/components/sections/newsletter";
+import { Reviews } from "@/components/sections/reviews";
+import "./home.css";
 
 export default function Home() {
   return (
-    <main className="py-12 sm:py-20">
-      <Container>
-        <h1 className="text-3xl font-semibold">TravelWorld</h1>
-        <p className="mt-3 text-body">Phase 1 project foundation</p>
-      </Container>
-    </main>
+    <>
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <SiteHeader />
+      <main id="main-content" tabIndex={-1}>
+        <HomeTourSearch>
+          <Hero />
+          <Services />
+          <FeaturedTours />
+        </HomeTourSearch>
+        <Experience />
+        <Gallery />
+        <Reviews />
+        <Newsletter />
+      </main>
+      <SiteFooter />
+    </>
   );
 }

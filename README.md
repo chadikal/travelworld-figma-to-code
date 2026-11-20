@@ -1,6 +1,6 @@
 # TravelWorld
 
-TravelWorld is an independent KAIROS portfolio project that translates a Figma Community travel website into a responsive frontend. Phase 1 establishes the project structure, static build, design tokens, and original assets. The current root route displays a foundation status page.
+TravelWorld is an independent KAIROS portfolio project that translates a Figma Community travel website into a responsive frontend. The Home page includes the original travel mosaics, services, experience section, reviews, and newsletter design.
 
 ## Design and credit
 
@@ -24,8 +24,8 @@ The dev server listens on [localhost:3000](http://localhost:3000) by default. Th
 
 ## Implementation scope
 
-The Figma source includes Home, Tours, About, Login, and Register. The layout foundation uses the design's 1120 px desktop content width and fluid horizontal gutters. Narrow-screen composition and direct screenshot comparison are part of screen implementation.
+The Figma source includes Home, Tours, About, Login, and Register. Home is implemented at `/`. It uses the 1120 px desktop content width, fluid gutters, a compact navigation menu, and reflowed mosaics and forms on smaller screens. Tours, About, Login, and Register are planned for the remaining-page phase.
 
-Tour filtering and form submissions are planned as frontend demonstrations using local data. Account creation, bookings, payments, and newsletter delivery are outside the demo.
+Home search filters sample tour data by destination, distance, and group size. Reviews support manual selection and pausable rotation. The newsletter form validates email locally and displays demo feedback. Account creation, bookings, payments, and newsletter delivery are outside the demo.
 
 See [the Figma audit](docs/FIGMA_IMPLEMENTATION.md) for screen dimensions, open design questions, and the asset inventory.

@@ -47,3 +47,15 @@ The prototype starts on Home and wires frame navigation, scroll-to actions, hove
 Search and Load More are planned as local-data interactions. Login and Register will demonstrate validation and password visibility. Newsletter and authentication-related actions need clear demo feedback. The Home hero's middle tile uses a Figma video fill (node `2:92`). The design-context export provided a control icon but no video or poster. Obtain the original clip and a poster for that tile before implementing playback.
 
 Phase 1 reviewed the original frame renders and created the project shell. ESLint, strict TypeScript checking, and the production build passed. The dev server returned HTTP 200 for the foundation route. The static export contains the root HTML, local assets, and bundled fonts. Browser-to-Figma comparisons start with the Home implementation.
+
+## Phase 2 · Home
+
+Home implements the shared header and footer, hero, search, services, featured tours, experience, gallery, reviews, and newsletter. Desktop uses the original assets, crop proportions, mosaics, and 1120 px content width. Tablet stacks the hero and condenses navigation. Mobile reflows the tour and gallery mosaics into two columns, stacks the experience and newsletter, and shows one review at a time.
+
+- The central hero tile retains its layout and displays an unavailable state while the original video and poster are missing.
+- Search filters the featured tours on Home using sample distances and group capacities. Its labels correct the source's Location spelling and kilometer notation. Reviews rotate by default, respect reduced-motion preferences, and include a pause control. Newsletter submission validates locally and confirms demo behavior.
+- Home and Gallery navigation work as in-page links. About, Tours, Login, and Register remain visible as disabled items until their routes are implemented. The source social icons appear in the footer. Their destination URLs were unspecified.
+
+Chromium screenshots of the production export were captured at 375, 390, 768, 1024, 1440, and 1920 px. At 1440 px, a side-by-side review against the original Home export confirmed the 4239 px page height and matching section boundaries. The comparison led to adjustments in the experience text, footer contact alignment, and section spacing. The mobile check also caught and corrected headline spacing and search field clipping.
+
+All six widths loaded without horizontal overflow, failed requests, or browser console warnings. Browser checks covered mobile navigation and gallery links, search results and empty states, keyboard focus, carousel selection and rotation, and required and invalid newsletter emails. Lint, strict TypeScript, and the static production build passed.

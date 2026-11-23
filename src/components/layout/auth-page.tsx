@@ -14,12 +14,14 @@ export function AuthPage({ mode }: { mode: "login" | "register" }) {
         <Container>
           <div className="auth-layout" data-mode={mode}>
             <Artwork
-              file="30c2a.png"
+              file="30c2a.webp"
               alt="Traveler standing on a mountain overlook"
               width={576}
               height={662}
               className="auth-photo"
-              preload
+              sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 820px) calc(100vw - 64px), 620px"
+              loading="eager"
+              fetchPriority="high"
             />
             <div className="auth-panel">
               <Artwork file="89da8.svg" alt="" width={224} height={48} className="auth-plane" />

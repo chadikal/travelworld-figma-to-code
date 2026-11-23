@@ -70,7 +70,7 @@ The 1440 px browser screenshot was compared alongside the original export. The p
 
 ## Final content pass
 
-- The center Home hero tile reuses the existing 1280 × 1280 lagoon photograph `public/assets/images/4ae15.jpg`, exported from the Home gallery and About introduction. The portrait crop keeps the boat in view. The unavailable-video text and playback icon were removed. Tile dimensions, offsets, borders, corner radii, and responsive rules were retained.
+- The center Home hero tile reuses the 1280 × 1280 lagoon export from the Home gallery and About introduction through the responsive `4ae15.webp` variants. The portrait crop keeps the boat in view. The unavailable-video text and playback icon were removed. Tile dimensions, offsets, borders, corner radii, and responsive rules were retained.
 - Natural travel copy replaces filler in the Home introduction, services, experience section, reviews, newsletter, and shared footer. The testimonials are fictional, and the copy was sized to keep line counts close to the original.
 - The existing footer description discloses the portfolio demo and explains that its features, reviews, and trip data are simulated. The Contact column keeps its layout and icons with an online-only address, the fictional email `hi@tw.test`, and a demo-only phone entry.
 

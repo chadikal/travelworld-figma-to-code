@@ -30,8 +30,8 @@ Home and Tours search filter sample tour data by destination, distance, and grou
 
 ## Content departures from Figma
 
-The center Home hero tile uses the existing lagoon photograph (`public/assets/images/4ae15.jpg`) from the Figma Home gallery and About screen. It takes the place of the unavailable video and its playback control while keeping the original tile layout.
+The center Home hero tile uses the existing lagoon photograph (`public/assets/images/4ae15.webp`) from the Figma Home gallery and About screen. It takes the place of the unavailable video and its playback control while keeping the original tile layout.
 
 Original travel sample copy replaces the design’s filler text, including the fictional reviews. The shared footer identifies TravelWorld as a portfolio demo and lists a fictional email with no physical address or phone line.
 
-See [the Figma audit](docs/FIGMA_IMPLEMENTATION.md) for screen dimensions, open design questions, and the asset inventory.
+See the [Figma audit](docs/FIGMA_IMPLEMENTATION.md) for screen dimensions and open design questions, and the [image performance audit](docs/IMAGE_PERFORMANCE.md) for asset and delivery measurements.

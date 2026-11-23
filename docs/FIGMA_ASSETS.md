@@ -1,6 +1,8 @@
 # Figma asset inventory
 
-Paths are relative to `public/assets/`. Filenames are the stable identifiers in the acquired Figma exports. Aliases come from the individual design-context responses and are scoped to their screen or component. The files are local and self-contained.
+This table records the original Figma export paths relative to `public/assets/`. Aliases are scoped to their screen or component. The export IDs also identify the local WebP derivatives. For example, `c98d5.webp` is the largest El Nido derivative and `c98d5-384.webp` is the 384-pixel-wide version. The globe and favicon share `7b2be-96.png`. The three small service PNGs, four full-size JPEG candidates, and SVG icons retain their original paths.
+
+The derivatives use the same source artwork and credits as the original exports. TravelWorld credits **Vipin_uidesigns** for the Community design. The individual photo and illustration terms remain unverified. No new external artwork was added. The original bytes and filenames are preserved in the pre-optimization Git revision for attribution and comparison. [Original Figma exports](https://github.com/chadikal/travelworld-figma-to-code/tree/6d4fb4bc5dc6bb2648d2c0823fb9bd63a2d38888/public/assets) · [Project design and licensing notes](../README.md#design-and-credit)
 
 | Path | Figma references |
 | --- | --- |

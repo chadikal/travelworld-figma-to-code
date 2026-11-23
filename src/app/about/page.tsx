@@ -19,7 +19,7 @@ export default function AboutPage() {
       <a className="skip-link" href="#main-content">Skip to content</a>
       <SiteHeader currentPage="about" />
       <main id="main-content" className="about-page" tabIndex={-1}>
-        <PageBanner file="4a700.png" headingId="about-heading">About <span>Us</span></PageBanner>
+        <PageBanner file="4a700.webp" sizes="(max-width: 620px) max(100vw, 445px), max(100vw, 712px)" headingId="about-heading">About <span>Us</span></PageBanner>
         <Container>
           <div className="about-story">
             <div className="about-copy">
@@ -33,10 +33,11 @@ export default function AboutPage() {
               </section>
             </div>
             <Artwork
-              file="4ae15.jpg"
+              file="4ae15.webp"
               alt="Outrigger boat in a turquoise lagoon between limestone cliffs"
               width={544}
               height={385}
+              sizes="auto, (max-width: 639px) calc(100vw - 32px), (max-width: 767px) calc(100vw - 64px), (max-width: 1183px) calc(50vw - 48px), 544px"
               className="about-story-image"
             />
           </div>

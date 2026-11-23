@@ -84,7 +84,7 @@
   margin-top: 40px;
 }
 
-.hero-tile img[data-nimg="fill"] {
+.hero-tile img {
   object-fit: cover;
 }
 
@@ -189,7 +189,7 @@
 
 .tour-tile:hover img,
 .gallery-tile:hover img,
-.hero-tile:hover img[data-nimg="fill"] {
+.hero-tile:hover img {
   transform: scale(1.07);
 }
 
@@ -246,6 +246,7 @@
 .experience-image {
   width: 100%;
   height: auto;
+  aspect-ratio: 544 / 459;
 }
 
 .experience-stats {

@@ -8,7 +8,7 @@ import "./site.css";
 export const metadata: Metadata = {
   title: { default: "TravelWorld", template: "%s | TravelWorld" },
   description: "A frontend implementation of the TravelWorld Figma design.",
-  icons: { icon: "/assets/images/7b2be.png" },
+  icons: { icon: "/assets/images/7b2be-96.png" },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

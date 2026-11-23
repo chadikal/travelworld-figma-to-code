@@ -17,7 +17,7 @@ export default function ToursPage() {
       <a className="skip-link" href="#main-content">Skip to content</a>
       <SiteHeader currentPage="tours" />
       <main id="main-content" tabIndex={-1}>
-        <PageBanner file="57c61.png" headingId="tours-heading"><span>All</span> Tours</PageBanner>
+        <PageBanner file="57c61.webp" sizes="max(100vw, 375px)" headingId="tours-heading"><span>All</span> Tours</PageBanner>
         <TourCatalog />
         <Newsletter />
       </main>

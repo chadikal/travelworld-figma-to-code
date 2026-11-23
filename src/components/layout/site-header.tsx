@@ -28,7 +28,7 @@ export function SiteHeader({ currentPage = "home" }: { currentPage?: SitePage })
       <Container>
         <div className="header-row">
           <Link href={currentPage === "home" ? "#top" : "/#top"} aria-label="TravelWorld home" onClick={() => setOpen(false)}>
-            <Artwork file="1c866.png" alt="TravelWorld" width={255} height={76} preload className="header-logo" />
+            <Artwork file="1c866.webp" alt="TravelWorld" width={255} height={76} sizes="(max-width: 820px) 185px, 255px" loading="eager" className="header-logo" />
           </Link>
           {!authPage && (
             <button

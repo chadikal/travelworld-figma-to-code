@@ -9,11 +9,14 @@ import { matchesTour, type TourFilters } from "@/lib/tour-filters";
 
 const searchFormId = "catalog-search-form";
 const allTours = [...catalogTours, ...additionalTours];
+const compactSizes = "auto, (max-width: 620px) calc(100vw - 32px), 353px";
+const largeSizes = "auto, (max-width: 1183px) calc(50vw - 46px), 545px";
 
-function CatalogCard({ tour }: { tour: CatalogTour }) {
+function CatalogCard({ tour, filtered }: { tour: CatalogTour; filtered: boolean }) {
+  const sizes = !filtered && tour.size === "compact" ? compactSizes : largeSizes;
   return (
     <li className="catalog-card" data-size={tour.size} data-caption={tour.captionSpacing}>
-      <Artwork file={tour.file} alt="" fill className={tour.imageFit === "fill" ? "catalog-image-fill" : undefined} />
+      <Artwork file={tour.file} alt="" fill sizes={sizes} className={tour.imageFit === "fill" ? "catalog-image-fill" : undefined} />
       <div className="catalog-caption">
         <h3>{tour.name}</h3>
         <p>{tour.region}</p>
@@ -59,7 +62,7 @@ export function TourCatalog() {
           </div>
           {visibleTours.length > 0 && (
             <ul id="catalog-tours" className={filters ? "catalog-grid catalog-results" : "catalog-grid"}>
-              {visibleTours.map((tour) => <CatalogCard key={tour.name} tour={tour} />)}
+              {visibleTours.map((tour) => <CatalogCard key={tour.name} tour={tour} filtered={Boolean(filters)} />)}
             </ul>
           )}
           {!filters && (

@@ -27,7 +27,7 @@ export function Experience() {
               ))}
             </dl>
           </div>
-          <Artwork file="22d45.png" alt="Illustration of a traveler sitting on an orange suitcase" width={491} height={414} className="experience-image" />
+          <Artwork file="22d45.webp" alt="Illustration of a traveler sitting on an orange suitcase" width={491} height={414} sizes="auto, (max-width: 620px) min(400px, calc(100vw - 32px)), 491px" className="experience-image" />
         </div>
       </Container>
     </section>
@@ -44,7 +44,7 @@ export function Gallery() {
             <div key={column[0].file}>
               {column.map(({ file, alt, width, height }) => (
                 <div key={file} className="gallery-tile" style={{ aspectRatio: `${width} / ${height}` }}>
-                  <Artwork file={file} alt={alt} fill />
+                  <Artwork file={file} alt={alt} fill sizes="auto, (max-width: 767px) 47vw, 279px" />
                 </div>
               ))}
             </div>

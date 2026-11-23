@@ -274,6 +274,7 @@ html {
 
 .footer-logo {
   margin-left: -13px;
+  aspect-ratio: 255 / 76;
 }
 
 .footer-brand > p {

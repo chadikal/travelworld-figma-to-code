@@ -29,7 +29,7 @@ export function SiteFooter({ currentPage = "home" }: { currentPage?: SitePage })
         <div className="footer-grid">
           <div className="footer-brand">
             <Link href={homeHref} aria-label="TravelWorld home">
-              <Artwork file="35d05.png" alt="TravelWorld" width={255} height={76} className="footer-logo" />
+              <Artwork file="35d05.webp" alt="TravelWorld" width={255} height={76} sizes="255px" className="footer-logo" />
             </Link>
             <p>A travel portfolio demo. Reviews, trip data, and features are simulated.</p>
             <div className="footer-socials" aria-hidden="true">

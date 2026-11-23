@@ -31,7 +31,7 @@ export function Newsletter() {
             <p className="newsletter-description">Find destination ideas, packing tips, and advice on when to visit, so you can plan your next trip with ease.</p>
             <p className="newsletter-status" role="status">{submitted ? "Demo signup complete. Your email was not saved." : ""}</p>
           </div>
-          <Artwork file="2963d.png" alt="" width={546} height={364} className="newsletter-image" />
+          <Artwork file="2963d.webp" alt="" width={546} height={364} sizes="auto, (max-width: 620px) min(400px, calc(100vw - 32px)), 546px" className="newsletter-image" />
         </div>
       </Container>
     </section>

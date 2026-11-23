@@ -4,14 +4,15 @@ import "./page-banner.css";
 
 type PageBannerProps = {
   file: string;
+  sizes: string;
   headingId: string;
   children: ReactNode;
 };
 
-export function PageBanner({ file, headingId, children }: PageBannerProps) {
+export function PageBanner({ file, sizes, headingId, children }: PageBannerProps) {
   return (
     <section className="page-banner" aria-labelledby={headingId}>
-      <Artwork file={file} alt="" fill preload />
+      <Artwork file={file} alt="" fill sizes={sizes} loading="eager" fetchPriority="high" />
       <h1 id={headingId}>{children}</h1>
     </section>
   );

@@ -7,6 +7,10 @@ import { featuredTours } from "@/data/home";
 import { matchesTour } from "@/lib/tour-filters";
 import { SectionHeading } from "./section-heading";
 
+const mosaicSizes = "auto, (max-width: 767px) 47vw, 279px";
+const wideTileSizes = "auto, (max-width: 767px) calc(100vw - 32px), 559px";
+const resultSizes = "auto, (max-width: 479px) calc(100vw - 32px), 300px";
+
 export function FeaturedTours() {
   const { filters, setFilters } = useHomeTourSearch();
   const visibleTours = filters ? featuredTours.filter((tour) => matchesTour(tour, filters)) : featuredTours;
@@ -30,7 +34,7 @@ export function FeaturedTours() {
           <ul className={filters ? "tour-results" : "tour-mosaic"}>
             {visibleTours.map((tour) => (
               <li key={tour.slot} className="tour-tile" data-slot={tour.slot}>
-                <Artwork file={tour.file} alt="" fill />
+                <Artwork file={tour.file} alt="" fill sizes={filters ? resultSizes : tour.slot === "sydney" ? wideTileSizes : mosaicSizes} />
                 <div className="tour-caption">
                   <span>{tour.name}</span>
                   <span>{tour.region}</span>

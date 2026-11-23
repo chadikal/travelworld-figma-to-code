@@ -44,7 +44,7 @@ The supplied frame screenshots and component sheets remain in the parent workspa
 
 The prototype starts on Home and wires frame navigation, scroll-to actions, hover variants, timed review rotation, direct selection through review dots, auth field states, and a media playback action. Gallery scrolls to the Home gallery section in the Home prototype. Cross-page Gallery links point to Home.
 
-Search and Load More are planned as local-data interactions. Login and Register will demonstrate validation and password visibility. Newsletter and authentication-related actions need clear demo feedback. The Home hero's middle tile uses a Figma video fill (node `2:92`). The design-context export provided a control icon but no video or poster. Obtain the original clip and a poster for that tile before implementing playback.
+Search and Load More use local sample data. Login and Register demonstrate validation and password visibility. Newsletter and authentication-related actions provide demo feedback. The Figma source uses a video fill in the middle Home hero tile (node `2:92`). The design-context export supplied the control icon without the clip or a poster.
 
 Phase 1 reviewed the original frame renders and created the project shell. ESLint, strict TypeScript checking, and the production build passed. The dev server returned HTTP 200 for the foundation route. The static export contains the root HTML, local assets, and bundled fonts. Browser-to-Figma comparisons start with the Home implementation.
 
@@ -52,7 +52,7 @@ Phase 1 reviewed the original frame renders and created the project shell. ESLin
 
 Home implements the shared header and footer, hero, search, services, featured tours, experience, gallery, reviews, and newsletter. Desktop uses the original assets, crop proportions, mosaics, and 1120 px content width. Tablet stacks the hero and condenses navigation. Mobile reflows the tour and gallery mosaics into two columns, stacks the experience and newsletter, and shows one review at a time.
 
-- The central hero tile retains its layout and displays an unavailable state while the original video and poster are missing.
+- The central hero tile initially retained its layout with an unavailable-video state. The final content pass replaced that state with a static photograph.
 - Search filters the featured tours on Home using sample distances and group capacities. Its labels correct the source's Location spelling and kilometer notation. Reviews glide left in a continuous loop. The four dots jump to the three reviews and back to the first, following the prototype. The strip pauses on hover or through its Pause button. Reduced-motion users start with playback paused. Newsletter submission validates locally and confirms demo behavior.
 - Home and Gallery navigation work as in-page links. During Phase 2, the unimplemented routes appeared as disabled items. The source social icons appear in the footer. Their destination URLs were unspecified.
 
@@ -67,3 +67,11 @@ The Tours route implements the original banner, plane artwork, search controls, 
 Location, distance, and maximum group size filter the local demo collection. Load More reveals three extra entries using original photos from the Home frame. The initial cards use the source captions, including the Tours frame's Phetchabun label. The shared navbar stays pinned while scrolling. Home and Tours links open at the top, and Gallery on Tours links directly to the Home gallery below the navbar.
 
 The 1440 px browser screenshot was compared alongside the original export. The page height measured 3073 px, and the hero, search, catalog, newsletter, and footer align to the Figma section positions. The El Nido tile uses the source's full-image placement. Chromium checks at 375, 390, 768, 1024, 1440, and 1920 px covered overflow, images, fonts, and route loading. Interaction checks covered Home and Tours navigation, combined filters, empty results, reset, Load More, and demo signup.
+
+## Final content pass
+
+- The center Home hero tile reuses the existing 1280 × 1280 lagoon photograph `public/assets/images/4ae15.jpg`, exported from the Home gallery and About introduction. The portrait crop keeps the boat in view. The unavailable-video text and playback icon were removed. Tile dimensions, offsets, borders, corner radii, and responsive rules were retained.
+- Natural travel copy replaces filler in the Home introduction, services, experience section, reviews, newsletter, and shared footer. The testimonials are fictional, and the copy was sized to keep line counts close to the original.
+- The existing footer description discloses the portfolio demo and explains that its features, reviews, and trip data are simulated. The Contact column keeps its layout and icons with an online-only address, the fictional email `hi@tw.test`, and a demo-only phone entry.
+
+Chromium checks covered all five pages at 375, 390, 768, 1024, 1440, and 1920 px. The hero tile measurements matched the baseline at each width. A local Windows static export served all five pages and passed link navigation, while some Next.js route-prefetch requests returned HTTP 404 because the exported segment files used nested paths.

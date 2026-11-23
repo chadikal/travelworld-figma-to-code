@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Container } from "@/components/layout/container";
 import { Artwork } from "@/components/ui/artwork";
-import { reviewers, reviewText } from "@/data/home";
+import { reviewers } from "@/data/home";
 import { SectionHeading } from "./section-heading";
 
 const cycleDuration = 36_000;
@@ -70,9 +70,9 @@ export function Reviews() {
     setRotation(false);
   }
 
-  const cards = reviewers.map(({ name, avatar }) => (
+  const cards = reviewers.map(({ name, avatar, quote }) => (
     <figure key={name} className="review">
-      <blockquote>{reviewText}</blockquote>
+      <blockquote>{quote}</blockquote>
       <figcaption>
         <Artwork file={avatar} alt="" width={85} height={63} />
         <div><strong>{name}</strong><span>Customer</span></div>

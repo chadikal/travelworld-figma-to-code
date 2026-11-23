@@ -28,7 +28,7 @@ export function Newsletter() {
               />
               <button type="submit">Subscribe</button>
             </form>
-            <p className="newsletter-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati adipisici sunt in, provident facere ipsam?</p>
+            <p className="newsletter-description">Find destination ideas, packing tips, and advice on when to visit, so you can plan your next trip with ease.</p>
             <p className="newsletter-status" role="status">{submitted ? "Demo signup complete. Your email was not saved." : ""}</p>
           </div>
           <Artwork file="2963d.png" alt="" width={546} height={364} className="newsletter-image" />

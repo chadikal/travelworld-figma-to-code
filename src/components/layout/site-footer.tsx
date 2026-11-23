@@ -4,9 +4,9 @@ import { Container } from "./container";
 import type { SitePage } from "./site-header";
 
 const contacts = [
-  { label: "Address", value: "Lorem", icon: "92d5a.svg", width: 18, height: 15 },
-  { label: "Email", value: "xyz@mail.com", icon: "5883e.svg", width: 19.5, height: 16.5 },
-  { label: "Phone", value: "00022200222", icon: "7e18a.svg", width: 18, height: 15 },
+  { label: "Address", value: "Online", icon: "92d5a.svg", width: 18, height: 15 },
+  { label: "Email", value: "hi@tw.test", icon: "5883e.svg", width: 19.5, height: 16.5 },
+  { label: "Phone", value: "Demo only", icon: "7e18a.svg", width: 18, height: 15 },
 ];
 
 export function SiteFooter({ currentPage = "home" }: { currentPage?: SitePage }) {
@@ -31,7 +31,7 @@ export function SiteFooter({ currentPage = "home" }: { currentPage?: SitePage })
             <Link href={homeHref} aria-label="TravelWorld home">
               <Artwork file="35d05.png" alt="TravelWorld" width={255} height={76} className="footer-logo" />
             </Link>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, enim.</p>
+            <p>A travel portfolio demo. Reviews, trip data, and features are simulated.</p>
             <div className="footer-socials" aria-hidden="true">
               {["cba40.svg", "c4148.svg", "f75ab.svg", "f56be.svg"].map((file) => (
                 <Artwork key={file} file={file} alt="" width={35} height={35} />

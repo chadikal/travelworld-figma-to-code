@@ -28,4 +28,10 @@ Home, Tours, About, Login, and Register implement the five supplied Figma screen
 
 Home and Tours search filter sample tour data by destination, distance, and group size. The Tours page shows ten destinations from Figma and reveals three extra demo entries through Load More. Home reviews support manual selection and pausable rotation. Newsletter, Login, and Register validate input locally and display demo feedback. Authentication, bookings, payments, and newsletter delivery are outside the demo.
 
+## Content departures from Figma
+
+The center Home hero tile uses the existing lagoon photograph (`public/assets/images/4ae15.jpg`) from the Figma Home gallery and About screen. It takes the place of the unavailable video and its playback control while keeping the original tile layout.
+
+Original travel sample copy replaces the design’s filler text, including the fictional reviews. The shared footer identifies TravelWorld as a portfolio demo and lists a fictional email with no physical address or phone line.
+
 See [the Figma audit](docs/FIGMA_IMPLEMENTATION.md) for screen dimensions, open design questions, and the asset inventory.

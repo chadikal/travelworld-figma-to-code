@@ -17,7 +17,7 @@ export function Experience() {
           <div className="experience-copy">
             <span className="script-label">Experience</span>
             <h2 id="experience-heading">With our all experience<br className="desktop-break" /> we will serve you</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br className="desktop-break" /> Quas aliquam, hic tempora inventore suscipit unde.</p>
+            <p>A good trip starts with local knowledge and a clear plan.<br className="desktop-break" /> Leave time to explore at a pace that suits you.</p>
             <dl className="experience-stats">
               {stats.map(({ value, label }) => (
                 <div key={label}>

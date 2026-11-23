@@ -27,10 +27,20 @@ export const galleryColumns = [
   ],
 ] as const;
 
-export const reviewText = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus sit, explicabo provident hic distinctio molestias voluptates nobis alias placeat suscipt earum debitits recusandae voluptate illum expedita corrupti aliquid doloribus delectus?";
-
 export const reviewers = [
-  { name: "John Deep", avatar: "11090.jpg" },
-  { name: "Ally Gomez", avatar: "d60b3.jpg" },
-  { name: "Alex Bugg", avatar: "ab710.jpg" },
+  {
+    name: "John Deep",
+    avatar: "11090.jpg",
+    quote: "Our guide knew when the old town would be quiet and where to stop for a good lunch. We saw the places we came for, had time to wander on our own, and never felt rushed from one stop to the next. It was a relaxed way to get to know the city.",
+  },
+  {
+    name: "Ally Gomez",
+    avatar: "d60b3.jpg",
+    quote: "Having a loose plan made our weekend much easier. We spent the morning by the coast, took a long lunch, and still made it back to the harbor for sunset. I especially liked having time between stops to explore the little streets on my own.",
+  },
+  {
+    name: "Alex Bugg",
+    avatar: "ab710.jpg",
+    quote: "We chose a small-group trip for our first visit. The walks were manageable, our guide shared stories along the way, and we always knew where to meet after a break. We came home with a list of small museums and cafés to revisit next time.",
+  },
 ] as const;

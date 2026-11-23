@@ -15,15 +15,14 @@ export function Hero() {
             <h1 id="hero-heading">
               Traveling opens the door to<br className="desktop-break" /> creating <strong>memories</strong>
             </h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam ipsum nobis asperiores soluta voluptas quas voluptates. Molestiae tempora dignissimos, animi praesentium molestias perferendis porro expedita delectus. Soluta natus porro.</p>
+            <p>Find a place you’ve always wanted to visit and see what makes it worth the trip. Browse ideas for coastal escapes, mountain walks, and city breaks, with room for the unexpected stops you’ll remember long after you’re home.</p>
           </div>
           <div className="hero-media">
             <div className="hero-tile">
               <Artwork file="92c3c.jpg" alt="Traveler looking out over a mountain valley" fill preload />
             </div>
-            <div className="hero-tile hero-video">
-              <span>Video unavailable</span>
-              <Artwork file="f5f10.svg" alt="" width={44} height={44} />
+            <div className="hero-tile">
+              <Artwork file="4ae15.jpg" alt="Outrigger boat in a turquoise lagoon between limestone cliffs" fill preload className="hero-lagoon" />
             </div>
             <div className="hero-tile">
               <Artwork file="d67fc.jpg" alt="Traveler standing before the elaborate entrance of a building" fill preload />

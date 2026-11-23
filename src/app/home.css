@@ -88,20 +88,8 @@
   object-fit: cover;
 }
 
-.hero-video {
-  display: grid;
-  place-items: center;
-  background: var(--color-heading);
-  color: white;
-  text-align: center;
-  font-size: 13px;
-}
-
-.hero-video img {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  opacity: .6;
+.hero-lagoon {
+  object-position: 72% center;
 }
 
 .experience-copy h2 {
@@ -507,16 +495,6 @@
 
   .hero-tile:nth-child(3) {
       margin-top: 20px;
-    }
-
-  .hero-video {
-      padding: 4px;
-      font-size: 11px;
-    }
-
-  .hero-video img {
-      bottom: 4px;
-      left: 4px;
     }
 
   .experience-grid {

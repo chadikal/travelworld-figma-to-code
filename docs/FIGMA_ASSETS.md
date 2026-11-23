@@ -23,7 +23,7 @@ Paths are relative to `public/assets/`. Filenames are the stable identifiers in 
 | `images/3f655.jpg` | Home (`imgProperty1Frame14`) |
 | `icons/46ccd.svg` | Search variants (`imgGroup4`) |
 | `images/4a700.png` | About (`imgAllTours`) |
-| `images/4ae15.jpg` | Home (`imgProperty1Default4`) · About (`imgRectangle31`) |
+| `images/4ae15.jpg` | Home gallery (`imgProperty1Default4`) · About (`imgRectangle31`) · Reused in the center Home hero tile |
 | `icons/4ce54.svg` | Home (`imgGroup2`) · Tours (`imgGroup2`) · Search variants (`imgGroup2`) |
 | `images/4e06c.jpg` | Tours (`imgRectangle30`) |
 | `icons/53eb2.svg` | Login (`imgLine3`) |

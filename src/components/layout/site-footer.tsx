@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Artwork } from "@/components/ui/artwork";
 import { Container } from "./container";
+import type { SitePage } from "./site-header";
 
 const contacts = [
   { label: "Address", value: "Lorem", icon: "92d5a.svg", width: 18, height: 15 },
@@ -8,13 +9,18 @@ const contacts = [
   { label: "Phone", value: "00022200222", icon: "7e18a.svg", width: 18, height: 15 },
 ];
 
-export function SiteFooter({ currentPage = "home" }: { currentPage?: "home" | "tours" }) {
+export function SiteFooter({ currentPage = "home" }: { currentPage?: SitePage }) {
   const home = currentPage === "home";
   const homeHref = home ? "#top" : "/#top";
-  const toursHref = home ? "/tours/#top" : "#top";
+  const aboutHref = currentPage === "about" ? "#top" : "/about/#top";
+  const toursHref = currentPage === "tours" ? "#top" : "/tours/#top";
   const groups = [
-    { title: "Discover", links: [{ name: "Home", href: homeHref }, { name: "About" }, { name: "Tours", href: toursHref }] },
-    { title: "Quick Links", links: [{ name: "Gallery", href: home ? "#gallery" : "/#gallery" }, { name: "Login" }, { name: "Register" }] },
+    { title: "Discover", links: [{ name: "Home", href: homeHref }, { name: "About", href: aboutHref }, { name: "Tours", href: toursHref }] },
+    { title: "Quick Links", links: [
+      { name: "Gallery", href: home ? "#gallery" : "/#gallery" },
+      { name: "Login", href: currentPage === "login" ? "#top" : "/login/#top" },
+      { name: "Register", href: currentPage === "register" ? "#top" : "/register/#top" },
+    ] },
   ];
 
   return (
@@ -39,7 +45,7 @@ export function SiteFooter({ currentPage = "home" }: { currentPage?: "home" | "t
               <ul>
                 {group.links.map(({ name, href }) => (
                   <li key={name}>
-                    {href ? <Link href={href}>{name}</Link> : <span role="link" aria-disabled="true">{name}</span>}
+                    <Link href={href}>{name}</Link>
                   </li>
                 ))}
               </ul>

@@ -24,8 +24,8 @@ The dev server listens on [localhost:3000](http://localhost:3000) by default. Th
 
 ## Implementation scope
 
-The Figma source includes Home, Tours, About, Login, and Register. Home and Tours are implemented at `/` and `/tours/`. They use the 1120 px desktop content width, fluid gutters, a compact navigation menu, and reflowed mosaics and forms on smaller screens. About, Login, and Register remain in the implementation plan.
+Home, Tours, About, Login, and Register implement the five supplied Figma screens at `/`, `/tours/`, `/about/`, `/login/`, and `/register/`. The layouts use the 1120 px desktop content width, fluid gutters, and responsive navigation.
 
-Home and Tours search filter sample tour data by destination, distance, and group size. The Tours page shows ten destinations from Figma and reveals three extra demo entries through Load More. Home reviews support manual selection and pausable rotation. The newsletter form validates email locally and displays demo feedback. Account creation, bookings, payments, and newsletter delivery are outside the demo.
+Home and Tours search filter sample tour data by destination, distance, and group size. The Tours page shows ten destinations from Figma and reveals three extra demo entries through Load More. Home reviews support manual selection and pausable rotation. Newsletter, Login, and Register validate input locally and display demo feedback. Authentication, bookings, payments, and newsletter delivery are outside the demo.
 
 See [the Figma audit](docs/FIGMA_IMPLEMENTATION.md) for screen dimensions, open design questions, and the asset inventory.

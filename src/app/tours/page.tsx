@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { Newsletter } from "@/components/sections/newsletter";
+import { PageBanner } from "@/components/sections/page-banner";
 import { TourCatalog } from "@/components/sections/tour-catalog";
-import { Artwork } from "@/components/ui/artwork";
 import "./tours.css";
 
 export const metadata: Metadata = {
@@ -17,10 +17,7 @@ export default function ToursPage() {
       <a className="skip-link" href="#main-content">Skip to content</a>
       <SiteHeader currentPage="tours" />
       <main id="main-content" tabIndex={-1}>
-        <section className="tours-banner" aria-labelledby="tours-heading">
-          <Artwork file="57c61.png" alt="" fill preload />
-          <h1 id="tours-heading"><span>All</span> Tours</h1>
-        </section>
+        <PageBanner file="57c61.png" headingId="tours-heading"><span>All</span> Tours</PageBanner>
         <TourCatalog />
         <Newsletter />
       </main>

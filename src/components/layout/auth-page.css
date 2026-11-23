@@ -1,0 +1,347 @@
+.auth-header .nav-account-links {
+  display: grid;
+  grid-template-columns: 95px 120px;
+  gap: 5px;
+}
+
+.auth-header .primary-nav .login-action {
+  margin: 0;
+}
+
+.auth-header .primary-nav .register-action {
+  background: transparent;
+  color: inherit;
+}
+
+.auth-header .primary-nav [aria-current="page"] {
+  background: var(--color-primary);
+  color: white;
+}
+
+.auth-header .primary-nav a:hover {
+  color: var(--color-heading);
+}
+
+.auth-page {
+  overflow: clip;
+}
+
+.auth-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 576fr) minmax(0, 544fr);
+}
+
+.auth-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: 12px 0 0 12px;
+  object-fit: cover;
+}
+
+.auth-panel {
+  position: relative;
+  isolation: isolate;
+  min-height: 662px;
+}
+
+.auth-plane,
+.auth-plane-trail,
+.auth-landmarks {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.auth-plane {
+  top: 15px;
+  right: 0;
+}
+
+.auth-plane-trail {
+  top: 72px;
+  left: 100%;
+  max-width: none;
+  transform: rotate(-175.81deg);
+}
+
+.auth-landmarks {
+  inset: auto 0 0;
+  height: 105px;
+  overflow: hidden;
+}
+
+.auth-landmarks img {
+  position: absolute;
+  bottom: 0;
+  max-width: none;
+}
+
+.auth-landmarks img:first-child {
+  left: -14px;
+}
+
+.auth-landmarks img:last-child {
+  right: -6px;
+  transform: scaleX(-1);
+}
+
+.auth-content {
+  --fields-width: 352px;
+  --submit-width: 224px;
+  padding: 39px 24px 58px;
+  text-align: center;
+}
+
+.auth-heading h1 {
+  color: var(--color-secondary);
+  font-size: clamp(44px, 5.5vw, 64px);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.auth-heading p {
+  color: var(--color-body);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.auth-form {
+  width: min(100%, var(--fields-width));
+  margin: 28px auto 0;
+}
+
+.auth-fields {
+  display: grid;
+  gap: 25px;
+}
+
+.auth-fields input {
+  width: 100%;
+  min-width: 0;
+  min-height: 51px;
+  padding: 0 clamp(14px, 2.2vw, 30px);
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--radius-control);
+  background: white;
+  font-size: 16px;
+}
+
+.auth-fields input::placeholder {
+  color: var(--color-body);
+  opacity: 1;
+}
+
+.auth-name-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2.23vw, 32px);
+}
+
+.auth-password {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.auth-password input {
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.auth-password:has(button) input {
+  padding-right: 68px;
+}
+
+.auth-password-toggle {
+  grid-area: 1 / 2;
+  z-index: 1;
+  min-height: 44px;
+  padding-inline: 12px;
+  color: var(--color-heading);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-text-action {
+  color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.auth-text-action:hover {
+  color: var(--color-heading);
+  text-decoration: underline;
+}
+
+.auth-recovery {
+  display: block;
+  margin: 10px 0 0 auto;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.auth-submit {
+  width: min(100%, var(--submit-width));
+  min-height: 42px;
+  margin-top: 30px;
+  border-radius: 5px;
+  background: var(--color-secondary);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-submit:hover {
+  background: var(--color-primary);
+  color: var(--color-heading);
+}
+
+.auth-divider {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  width: min(100%, var(--submit-width));
+  margin: 25px auto 0;
+  color: var(--color-secondary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.auth-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.auth-social button {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 34px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 9px;
+  background: white;
+  cursor: pointer;
+}
+
+.auth-social .auth-apple {
+  border: 0;
+}
+
+.auth-social button:hover {
+  box-shadow: 0 0 0 1px var(--color-heading);
+}
+
+.auth-switch,
+.auth-status {
+  color: var(--color-body);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.auth-switch {
+  margin-top: 12px;
+}
+
+.auth-switch a {
+  font-weight: 600;
+}
+
+.auth-status:not(:empty) {
+  max-width: 190px;
+  margin: 8px auto 0;
+  border-radius: 5px;
+  background: white;
+  color: var(--color-heading);
+}
+
+.auth-page + .site-footer .footer-column ul {
+  font-weight: 500;
+}
+
+[data-mode="register"] .auth-content {
+  --fields-width: 480px;
+  --submit-width: 337px;
+  padding-top: 45px;
+}
+
+[data-mode="register"] .auth-heading h1 {
+  font-size: clamp(24px, 2.55vw, 32px);
+  line-height: 41px;
+}
+
+[data-mode="register"] .auth-heading p {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+[data-mode="register"] .auth-form {
+  margin-top: 20px;
+}
+
+[data-mode="register"] .auth-fields {
+  gap: 20px;
+}
+
+[data-mode="register"] .auth-submit {
+  margin-top: 25px;
+}
+
+[data-mode="register"] .auth-divider {
+  margin-top: 15px;
+}
+
+[data-mode="register"] .auth-social {
+  margin-top: 10px;
+}
+
+@media (max-width: 820px) {
+  .auth-header .nav-account-links {
+    grid-template-columns: auto auto;
+  }
+
+  .auth-header .primary-nav :is(.login-action, .register-action) {
+    padding-inline: 12px;
+    font-size: 15px;
+  }
+
+  .auth-header .header-logo {
+    width: min(44vw, 185px);
+  }
+
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-photo {
+    height: clamp(210px, 52vw, 360px);
+    border-radius: 12px 12px 0 0;
+    object-position: center 62%;
+  }
+
+  .auth-panel {
+    min-height: auto;
+  }
+
+  .auth-content {
+    padding-inline: clamp(8px, 3vw, 24px);
+    padding-bottom: 125px;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .auth-header .primary-nav [aria-current="page"],
+  .auth-heading h1,
+  .auth-divider,
+  .auth-text-action,
+  .auth-submit {
+    color: var(--color-heading);
+  }
+}
